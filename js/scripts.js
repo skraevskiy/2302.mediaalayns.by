@@ -9,10 +9,17 @@
 
 		if (!cardItems || cardLength <= 0) return;
 
+		cardItems.find('.card__content').each(function(index, el) {
+			el = $(el);
+			el.addClass('hide');
+		});
+
 		card.slick({
 			arrows: false,
 			infinite: false
 		});
+
+		cardItems.filter(':first-child').find('.card__content').removeClass('hide');
 
 		card.on('afterChange', function(slick, currentSlide){
 
@@ -20,6 +27,11 @@
 				content = $(cardItems[index]).find('.card__content');
 
 			content.removeClass('hide');
+
+			content.find('div').each(function(index, el) {
+				el = $(el);
+				el.removeClass('hide');
+			});
 
 		});
 
