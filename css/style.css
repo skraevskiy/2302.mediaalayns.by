@@ -11,13 +11,10 @@ html,
 body {
 	width: 100%;
 	height: 100%;
-	overflow: hidden;
 }
 
 body {
 	font-family: 'Source Sans Pro', sans-serif;
-	font-size: 32px;
-	line-height: 36px;
 }
 
 .hide {
@@ -41,16 +38,16 @@ body {
 	width: 60px;
 }
 
+.swipe img {
+	width: 100%;
+	opacity: .4;
+}
+
 .landscape {
 	display: none;
 	width: 100%;
 	height: 100%;
 	background-color: #fff;
-}
-
-.swipe img {
-	width: 100%;
-	opacity: .4;
 }
 
 .landscape img {
@@ -80,24 +77,44 @@ body {
 
 .card__content {
 	position: relative;
-
 	display: -moz-flex;
 	display: -ms-flex;
 	display: -o-flex;
 	display: flex;
-
-	-webkit-flex-direction: column;
-	-moz-flex-direction: column;
-	-ms-flex-direction: column;
-	-o-flex-direction: column;
-	flex-direction: column;
-
+	-moz-flex-direction: row;
+	-o-flex-direction: row;
+	flex-direction: row;
 	-ms-align-items: center;
 	align-items: center;
 	justify-content: center;
-
-	padding: 0 2%;
 	overflow: hidden;
+}
+
+.card__item:last-of-type .card__content {
+	-moz-flex-direction: column;
+	-o-flex-direction: column;
+	flex-direction: column;
+}
+
+.card__item .left,
+.card__item .right {
+	height: 100%;
+	position: relative;
+}
+
+.card__item .left {
+	width: 50%;
+}
+
+.card__item .right {
+	width: 50%;
+}
+
+.card__item .left {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	justify-content: center;
 }
 
 .card__content .title {
@@ -108,28 +125,38 @@ body {
 	text-align: center;
 }
 
-.card__content:last-of-type .logo {
+.card__content .logo {
 	width: 350px;
 	margin-top: 30px;
 }
 
-.card__content:last-of-type .logo img {
+.card__content .logo img {
 	width: 100%;
 }
 
 .card__content .speech {
-	position: relative;
+	width: 80%;
+	min-width: 320px;
+	max-width: 450px;
+
 	border-left: 30px solid;
 	border-bottom: 10px solid;
 	border-radius: 50%;
-	max-width: 400px;
-	padding: 5% 3%;
+
+	padding: 6% 5%;
+	margin-right: 5%;
+
+	-webkit-transform: rotate(-5deg);
 	transform: rotate(-5deg);
+
 	font-size: 34px;
 	line-height: 38px;
 	font-weight: bold;
 	color: #fff;
 	text-align: center;
+
+	position: relative;
+	z-index: 10;
 }
 
 .card__content .speech:after {
@@ -142,8 +169,8 @@ body {
 	border: 50px solid transparent;
 	border-bottom: 0;
 	border-right: 0;
-	margin-left: 20px;
-	margin-bottom: -30px;
+	margin-left: 0px;
+	margin-bottom: -40px;
 }
 
 .card__content .speech.purple {
@@ -182,70 +209,13 @@ body {
 	border-top-color: #4f275b;
 }
 
-.card__item:nth-of-type(2) .card__content,
-.card__item:nth-of-type(3) .card__content,
-.card__item:nth-of-type(4) .card__content,
-.card__item:nth-of-type(5) .card__content {
-	flex-direction: row;
-	flex-wrap: nowrap;
-	align-items: flex-start;
-}
-
-.card__item:nth-of-type(2) .left,
-.card__item:nth-of-type(2) .right,
-.card__item:nth-of-type(3) .left,
-.card__item:nth-of-type(3) .right,
-.card__item:nth-of-type(4) .left,
-.card__item:nth-of-type(4) .right,
-.card__item:nth-of-type(5) .left,
-.card__item:nth-of-type(5) .right {
-	height: 100%;
-	position: relative;
-}
-
-.card__item:nth-of-type(2) .left,
-.card__item:nth-of-type(3) .left,
-.card__item:nth-of-type(4) .left,
-.card__item:nth-of-type(5) .left {
-	width: 50%;
-}
-
-.card__item:nth-of-type(2) .right,
-.card__item:nth-of-type(3) .right,
-.card__item:nth-of-type(4) .right,
-.card__item:nth-of-type(5) .right {
-	width: 50%;
-}
-
-.card__item:nth-of-type(2) .speech,
-.card__item:nth-of-type(3) .speech,
-.card__item:nth-of-type(4) .speech,
-.card__item:nth-of-type(5) .speech  {
-	position: absolute;
-	top: 5%;
-	right: 5%;
-
-	z-index: 5;
-}
-
-.card__item:nth-of-type(4) .speech,
-.card__item:nth-of-type(5) .speech {
-	top: 10%;
-}
-
-.card__item:nth-of-type(2) .caption,
-.card__item:nth-of-type(3) .caption,
-.card__item:nth-of-type(4) .caption,
-.card__item:nth-of-type(5) .caption {
-	position: absolute;
-	bottom: 20px;
-	right: 20px;
-	font-size: 21px;
-	line-height: 26px;
+.card__content .caption {
+	margin-top: 10%;
+	font-size: 24px;
+	line-height: 28px;
 	font-weight: bold;
 	text-align: right;
-
-	z-index: 10;
+	margin-right: 5%;
 }
 
 .card__content .cezar,
@@ -275,10 +245,62 @@ body {
 	height: 100%;
 
 	background-image: url('../img/medal.png');
-	-webkit-background-size: contain;
 	background-size: contain;
 	background-repeat: no-repeat;
 	background-position: top center;
+}
+
+@media (max-width: 1000px) {
+	.card__content .title {
+		font-size: 48px;
+		line-height: 54px;
+	}
+}
+
+@media (max-width: 768px) {
+	.card__item .left {
+		width: 60%;
+	}
+
+	.card__item .right {
+		width: 40%;
+	}
+
+	.card__content .title {
+		font-size: 42px;
+		line-height: 48px;
+	}
+
+	.card__content .speech {
+		font-size: 28px;
+		line-height: 32px;
+		min-width: 250px;
+	}
+
+	.card__content:last-of-type .logo {
+		width: 250px;
+	}
+}
+
+@media (max-width: 520px) {
+	.card__item .left {
+		width: 70%;
+	}
+
+	.card__item .right {
+		width: 30%;
+	}
+
+	.card__content .title {
+		font-size: 32px;
+		line-height: 38px;
+	}
+
+	.card__content .speech,
+	.card__content .caption {
+		font-size: 18px;
+		line-height: 24px;
+	}
 }
 
 @media (orientation: portrait) {

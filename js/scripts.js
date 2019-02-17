@@ -1,5 +1,6 @@
 (function($) {
 	$(document).ready(function(){
+
 		let card = $('.card');
 
 		if (!card) return;
