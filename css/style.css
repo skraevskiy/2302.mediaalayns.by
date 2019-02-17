@@ -17,7 +17,7 @@ body {
 body {
 	font-family: 'Source Sans Pro', sans-serif;
 	font-size: 32px;
-	line-height: 42px;
+	line-height: 36px;
 }
 
 .hide {
@@ -95,6 +95,71 @@ body {
 
 .card__content:last-of-type .logo img {
 	width: 100%;
+}
+
+.card__content .speech {
+	position: relative;
+	border-left: 30px solid;
+	border-bottom: 10px solid;
+	border-radius: 50%;
+	max-width: 400px;
+	padding: 4% 3%;
+	transform: rotate(-5deg);
+	font-size: 36px;
+	line-height: 42px;
+	font-weight: bold;
+	color: #fff;
+	text-align: center;
+}
+
+.card__content .speech:after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	width: 0;
+	height: 0;
+	border: 50px solid transparent;
+	border-bottom: 0;
+	border-right: 0;
+	margin-left: 20px;
+	margin-bottom: -30px;
+}
+
+.card__content .speech.purple {
+	background-color: #e5097f;
+	border-color: #b41a63;
+}
+
+.card__content .speech.purple:after {
+	border-top-color: #e5097f;
+}
+
+.card__content .speech.pink {
+	background-color: #f28ebd;
+	border-color: #e7609e;
+}
+
+.card__content .speech.pink:after {
+	border-top-color: #f28ebd;
+}
+
+.card__content .speech.violet {
+	background-color: #6a2e80;
+	border-color: #4f275b;
+}
+
+.card__content .speech.violet:after {
+	border-top-color: #6a2e80;
+}
+
+.card__content .speech.violet2 {
+	background-color: #4f275b;
+	border-color: #3f2349;
+}
+
+.card__content .speech.violet2:after {
+	border-top-color: #4f275b;
 }
 
 .card__content .medal {

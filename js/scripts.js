@@ -19,7 +19,10 @@
 			infinite: false
 		});
 
-		cardItems.filter(':first-child').find('.card__content').removeClass('hide');
+		let sTO4FirstItem = setTimeout(function() {
+			cardItems.filter(':first-child').find('.card__content').removeClass('hide');
+			clearTimeout(sTO4FirstItem);
+		}, 1000);
 
 		card.on('afterChange', function(slick, currentSlide){
 
