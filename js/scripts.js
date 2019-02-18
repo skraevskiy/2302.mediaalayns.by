@@ -37,6 +37,18 @@
 				el.removeClass('hide');
 			});
 
+			if (index == 3) {
+				let i3count = 0;
+				let i3SI = setInterval(function() {
+					content.find('.kutuzov img:first').toggleClass('hide');
+					content.find('.kutuzov img:last').toggleClass('hide');
+					if (i3count == 6) clearInterval(i3SI);
+					i3count++;
+				}, 2000);
+			}
+
+			if (content.find('card__popup')) content.find('card__popup').toggleClass('hide');
+
 		});
 
 	});
